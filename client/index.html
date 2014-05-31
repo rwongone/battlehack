@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Narrow Jumbotron Template for Bootstrap</title>
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="css/jumbotron-narrow.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/maincontroller.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="text-muted">Kardashian Calculator</h3>
+      </div>
+
+      <div class="jumbotron" ng-app='MyTutorialApp' ng-controller='MainController'>
+
+
+
+
+        <h2 id='content'>{{result}}</h2>
+        <input type="text" id="datebox" ng-model='result' class="form-control" placeholder="DDMMYYYY"/>
+        <br>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Calculate</a></p>
+
+
+        <form ng-app ng-controller="OrderFormController">
+          <h1>Services</h1>
+          <ul>
+            <!-- Loop through the services array, assign a click handler, and set or
+              remove the "active" css class if needed -->
+            <li ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{active:service.active}" class="btn btn-success">
+              <!-- Notice the use of the currency filter, it will format the price -->
+              {{service.name}} <span>{{service.price | currency}}</span>
+            </li>
+          </ul>
+
+          <div class="total">
+            <!-- Calculate the total price of all chosen services. Format it as currency. -->
+            Total: <span>{{total() | currency}}</span>
+          </div>
+        </form>
+
+
+      </div>
+
+      <div class="footer">
+        <p>&copy; dvdfu 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
