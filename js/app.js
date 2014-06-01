@@ -3,9 +3,9 @@ app.controller('controller', function($scope) {
 
 	$scope.projectname = "FindMe";
 	$scope.tab0 = "Home";
-	$scope.tab1 = "Lost Item?";
-	$scope.tab2 = "Found Item?";
-	$scope.tab3 = "About Us";
+	$scope.tab1 = "Lost";
+	$scope.tab2 = "Found";
+	$scope.tab3 = "About";
 	$scope.authors = "Matthew Du, Julie Xue, Richard Wong, David Fu";
 	$scope.result = "output";
 	$scope.properties = [
