@@ -17,10 +17,15 @@ app.controller('controller', function($scope) {
 		{id: 0, name: ''},
 
 	];
+	$scope.mapAddress = "img/gmap.png";
 
 	$scope.title = "";
 	$scope.description = "";
-	$scope.cash_reward = "0";
+	$scope.cash_reward = "";
+	$scope.latitude = 0;
+	$scope.longitude = 0;
+	$scope.email_address = "";
+	$scope.phone_number = "";
 
 
 	$scope.getMapAddress = function(){
@@ -39,13 +44,16 @@ app.controller('controller', function($scope) {
 
 	$scope.submit = function() {
 		Parse.initialize("MjJzN3zeFZvB1qehXMZqePWc3JK5wXMdDAElXzOp", "Q5IIgKAt1ETB7YV9inMx2x0xRf8EmF186dkCzLZt");
-		alert($scope.title);
 		var LostObject = Parse.Object.extend("LostObject");
 		var lostObject = new LostObject();
 		lostObject.save({
 			title: $scope.title,
-			number: $scope.description,
-			cash_reward: Number($scope.cash_reward)
+			description: $scope.description,
+			cash_reward: Number($scope.cash_reward),
+			latitude: Number($scope.latitude),
+			longitude: Number($scope.longitude),
+			email_address: $scope.email_address,
+			phone_number: $scope.phone_number
 		}, {
 			success: function(lostObject) {
 				alert("successful save");
