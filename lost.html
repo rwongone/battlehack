@@ -33,9 +33,11 @@
       <div class="jumbotron">
         <h3>Lost something?</h3>
         <p>No problem. Give us the details and we'll add it to our database.</p>
-        <input type="text" ng-model='mapAddress' width='500'/>
-        <img id="map" src="http://maps.googleapis.com/maps/api/staticmap?size=600x300&markers=color:blue%7Clabel:S%7C"
-        {{mapAddress}}"&sensor=false">
+      <form ng-submit="getMapAddress()">
+        <input type="text" ng-model="locationCoordinates" size="30" placeholder="search address">
+        <input class="btn-primary" type="submit" value="Search">
+      </form>
+        <img id="map" src={{mapAddress}}>
         <br>
       </div>
 

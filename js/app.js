@@ -1,5 +1,3 @@
-var app = angular.module('MyTutorialApp',[]);
-
 var app = angular.module('app', []);
 app.controller('controller', function($scope) {
 	
@@ -19,4 +17,10 @@ app.controller('controller', function($scope) {
 		{id: 0, name: ''},
 
 	];
+
+
+	$scope.getMapAddress = function(){
+		$scope.mapAddress = "http://maps.googleapis.com/maps/api/staticmap?center="+$scope.locationCoordinates+"&zoom=14&size=600x300&sensor=false";
+		};
+
 });
