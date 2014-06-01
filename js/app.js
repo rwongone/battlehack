@@ -1,7 +1,7 @@
 var app = angular.module('app', []);
 app.controller('controller', function($scope) {
 	
-	$scope.title = "FindMe";
+	$scope.projectname = "FindMe";
 	$scope.tab0 = "Home";
 	$scope.tab1 = "Lost Item?";
 	$scope.tab2 = "Found Item?";
@@ -18,6 +18,9 @@ app.controller('controller', function($scope) {
 
 	];
 
+	$scope.title = "";
+	$scope.description = "";
+	$scope.cash_reward = "0";
 
 
 	$scope.getMapAddress = function(){
@@ -29,10 +32,26 @@ app.controller('controller', function($scope) {
 
 				var latLng = results[0].geometry.location.toString();
 				latLng = latLng.replace(/[\(\)\s]*/g, "");
-				$scope.mapAddress = "http://maps.googleapis.com/maps/api/staticmap?center="+latLng+"&zoom=14&size=600x300&sensor=false";
+				$scope.mapAddress = "http://maps.googleapis.com/maps/api/staticmap?markers=color:red%7C"+latLng+"&zoom=14&size=600x300&sensor=false";
 			}
-			else{
-				alert("epic fail");
+		});
+	};
+
+	$scope.submit = function() {
+		Parse.initialize("MjJzN3zeFZvB1qehXMZqePWc3JK5wXMdDAElXzOp", "Q5IIgKAt1ETB7YV9inMx2x0xRf8EmF186dkCzLZt");
+		alert($scope.title);
+		var LostObject = Parse.Object.extend("LostObject");
+		var lostObject = new LostObject();
+		lostObject.save({
+			title: $scope.title,
+			number: $scope.description,
+			cash_reward: Number($scope.cash_reward)
+		}, {
+			success: function(lostObject) {
+				alert("successful save");
+			},
+			error: function(lostObject, error) {
+				alert("failed to save with error " + error.message);
 			}
 		});
 	};
