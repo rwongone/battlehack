@@ -66,5 +66,17 @@ app.controller('controller', function($scope) {
 			}
 		});
 	};
+	
+	$scope.search = function() {
+		Parse.initialize("MjJzN3zeFZvB1qehXMZqePWc3JK5wXMdDAElXzOp", "Q5IIgKAt1ETB7YV9inMx2x0xRf8EmF186dkCzLZt");
+		var query = new Parse.Query("LostObject");
+		query.find({
+		  success: function(results) {
+		  	$scope.searchResults = results;
+		  },
+		  error: function(error) {
+		  }
+		});
+	};
 
 });
