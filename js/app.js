@@ -35,9 +35,13 @@ app.controller('controller', function($scope) {
 		geocoder.geocode({'address': address}, function(results, status){
 			if(status == google.maps.GeocoderStatus.OK){
 
-				var latLng = results[0].geometry.location.toString();
-				latLng = latLng.replace(/[\(\)\s]*/g, "");
+				var latLng = results[0].geometry.location;
+				latLng = latLng.toString().replace(/[\(\)\s]*/g, "");
 				$scope.mapAddress = "http://maps.googleapis.com/maps/api/staticmap?markers=color:red%7C"+latLng+"&zoom=14&size=540x360";
+				latLng = latLng.split(",");
+				$scope.latitude = latLng[0];
+				$scope.longitude = latLng[1];
+				console.log($scope.latitude);
 			}
 			if(address == '') {
 				$scope.mapAddress = "img/gmap.png";

@@ -45,7 +45,7 @@
           <br>
           <input ng-model="paypal_username" ng-hide="cash_reward == 0" type="text" placeholder="Paypal Username" pattern="^[\w\d]+$"><br ng-hide="cash_reward == 0">
           <input ng-model="email_address" type="email" placeholder="Email Address" pattern="^[\w\d\.]+@[\w\d]+\.[\w]+$" required><br>
-          <input ng-model="phone_number" type="tel" placeholder="Phone Number" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"><br>
+          <input ng-model="phone_number" type="tel" placeholder="Phone Number ex 416-123-4567" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"><br>
           <input type="text" ng-model="locationCoordinates" ng-change="getMapAddress()" placeholder="Location last seen"><br><br>
           <img id="map" src={{mapAddress}} width="540" height="360"><br><br>
 
