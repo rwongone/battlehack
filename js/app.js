@@ -1,6 +1,6 @@
 var app = angular.module('app', []);
 app.controller('controller', function($scope) {
-	
+
 	$scope.projectname = "FindMe";
 	$scope.tab0 = "Home";
 	$scope.tab1 = "Lost Item?";
@@ -29,7 +29,7 @@ app.controller('controller', function($scope) {
 
 
 	$scope.getMapAddress = function(){
-		
+
 		var geocoder = new google.maps.Geocoder();
 		var address = $scope.locationCoordinates;
 		geocoder.geocode({'address': address}, function(results, status){
@@ -37,7 +37,10 @@ app.controller('controller', function($scope) {
 
 				var latLng = results[0].geometry.location.toString();
 				latLng = latLng.replace(/[\(\)\s]*/g, "");
-				$scope.mapAddress = "http://maps.googleapis.com/maps/api/staticmap?markers=color:red%7C"+latLng+"&zoom=14&size=600x300&sensor=false";
+				$scope.mapAddress = "http://maps.googleapis.com/maps/api/staticmap?markers=color:red%7C"+latLng+"&zoom=14&size=540x360";
+			}
+			if(address == '') {
+				$scope.mapAddress = "img/gmap.png";
 			}
 		});
 	};

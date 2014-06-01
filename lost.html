@@ -34,18 +34,20 @@
 
       <div class="jumbotron">
         <h3>Lost something?</h3>
-        <p>No problem. Give us the details and we'll add it to our database.</p>
-        
-        <input ng-model="title" type="text" placeholder="Title" required><br>
-        <input ng-model="description" type="text" placeholder="Description" required><br>
-        <input ng-model="cash_reward" type="text" placeholder="Cash Reward (optional)" pattern="[0-9]+([\.|,][0-9]+)?"><br>
-        <input ng-model="email_address" type="email" placeholder="Email Address" required><br>
-        <input ng-model="phone_number" type="tel" placeholder="Phone Number"><br>
-        <input type="text" ng-model="locationCoordinates" ng-change="getMapAddress()" size="30" placeholder="Location last seen"><br>
-        <img id="map" src={{mapAddress}} width="600" height="300"><br><br>
+        <p>No problem. Give us the details and we'll add it to our database.</p><br>
+        <form name="lost_form">
+          <input ng-model="title" type="text" placeholder="Title" required><br>
+          <input ng-model="description" type="text" placeholder="Description" required><br>
+          <input ng-model="cash_reward" name="cash_reward" type="text" placeholder="Cash Reward (optional)" pattern="^[\d]+([\.|,][\d]+)?$">
+          <br>
+          <input ng-model="paypal_username" ng-show="lost_form.cash_reward.length" type="text" placeholder="Paypal Username" pattern="^[\w\d]+$"><br>
+          <input ng-model="email_address" type="email" placeholder="Email Address" pattern="^[\w\d\.]+@[\w\d]+.[\w]+$" required><br>
+          <input ng-model="phone_number" type="tel" placeholder="Phone Number" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"><br>
+          <input type="text" ng-model="locationCoordinates" ng-change="getMapAddress()" placeholder="Location last seen"><br><br>
+          <img id="map" src={{mapAddress}} width="540" height="360"><br><br>
 
-        <button id="submitButton" ng-click="submit();">this is the butt</button><br>
-
+          <button id="submitButton" ng-click="submit();">this is the butt</button><br>
+        </form>
       </div>
 
       <div class="footer">
