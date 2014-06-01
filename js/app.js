@@ -30,9 +30,6 @@ app.controller('controller', function($scope) {
 				var latLng = results[0].geometry.location.toString();
 				latLng = latLng.replace(/[\(\)\s]*/g, "");
 				$scope.mapAddress = "http://maps.googleapis.com/maps/api/staticmap?center="+latLng+"&zoom=14&size=600x300&sensor=false";
-				var latLng = results[0].geometry.location.toString();
-				latLng = latLng.replace(/[\(\)\s]*/g, "");
-				$scope.mapAddress = "http://maps.googleapis.com/maps/api/staticmap?center="+latLng+"&zoom=14&size=600x300&sensor=false";
 			}
 			else{
 				alert("epic fail");
