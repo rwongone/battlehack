@@ -19,8 +19,21 @@ app.controller('controller', function($scope) {
 	];
 
 
+
 	$scope.getMapAddress = function(){
-		$scope.mapAddress = "http://maps.googleapis.com/maps/api/staticmap?center="+$scope.locationCoordinates+"&zoom=14&size=600x300&sensor=false";
-		};
+		
+		var geocoder = new google.maps.Geocoder();
+		var address = $scope.locationCoordinates;
+		geocoder.geocode({'address': address}, function(results, status){
+			if(status == google.maps.GeocoderStatus.OK){
+				var latLng = results[0].geometry.location.toString();
+				latLng = latLng.replace(/[\(\)\s]*/g, "");
+				$scope.mapAddress = "http://maps.googleapis.com/maps/api/staticmap?center="+latLng+"&zoom=14&size=600x300&sensor=false";
+			}
+			else{
+				alert("epic fail");
+			}
+		});
+	};
 
 });
