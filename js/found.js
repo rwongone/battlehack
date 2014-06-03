@@ -14,7 +14,13 @@ app.controller('FoundController', function($scope) {
 		query.find({
 		  success: function(results) {
 		  	for (var i = 0; i < results.length; i++) {
-		  		$scope.result.push(results[i].get("title"));
+		  		$scope.result.push( {title: results[i].get("title"),
+		  							description: results[i].get("description"),
+									cash_reward: results[i].get("cash_reward"),
+									latitude: results[i].get("latitude"),
+									longitude: results[i].get("longitude"),
+									email_address: results[i].get("email_address"),
+									phone_number: results[i].get("phone_number") })
 		  	};
 		  	//$scope.searchResults = results[0].get('title');
 		  },

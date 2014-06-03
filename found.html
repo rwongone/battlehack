@@ -29,7 +29,13 @@
 
       <div class="jumbotron">
         <ul class="list-group">
-          <li ng-repeat ="lost in result" class="list-group-item">{{lost}}</li>
+          <li ng-repeat ="lost in result" class="list-group-item"><b>title: </b>{{lost.title}}
+            <br><b>description: </b>{{lost.description}}
+            <br><b>cash reward: </b>{{lost.cash_reward}}
+            <br><b>latitude: </b>{{lost.latitude}}
+            <br><b>longitude: </b>{{lost.longitude}}
+            <br><b>email: </b>{{lost.email_address}}
+            <br><b>phone number: </b>{{lost.phone_number}}</li>
         </ul>
         <button id="searchButton" ng-click="search();">Search</button><br>
       </div>
