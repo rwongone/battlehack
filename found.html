@@ -28,7 +28,9 @@
       </div>
 
       <div class="jumbotron">
-        <p>{{searchResults}}</p>
+        <ul class="list-group">
+          <li ng-repeat ="lost in result" class="list-group-item">{{lost}}</li>
+        </ul>
         <button id="searchButton" ng-click="search();">Search</button><br>
       </div>
 
