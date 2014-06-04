@@ -77,3 +77,17 @@ body {
     border-bottom: 0;
   }
 }
+
+
+.center-block {
+  display: block;
+  margin-left: 230px;
+  margin-right: 230px;
+  text-align: center;
+}
+.map {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
